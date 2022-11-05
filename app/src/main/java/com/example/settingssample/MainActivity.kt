@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(),RandomWorker.SetSyncData{
         }
 
         serviceViewModel.getData().observe(this,observer)
-        serviceViewModel.mutableLiveData.observe(this)
+//        serviceViewModel.mutableLiveData.observe(this)
     }
 
     override fun syncData(mutableLiveData: MutableLiveData<List<Root>>){

@@ -35,18 +35,12 @@ class RandomWorker(val context: Context, val workerParams: WorkerParameters) :
             Log.e("RandomWorker", "<>RandomWoker$randomNumber")
             try{
                 Log.e("MainActivity instance","<><>"+MainActivity.activity)
-
-//                val outputData: Data = Data.Builder()
-//                    .put("data",mutableLiveData)
-//                    .build()
-//                return Result.success(outputData)
-//                GlobalScope.launch {
                     val syncData: SetSyncData = MainActivity.activity
                     syncData.syncData(mutableLiveData)
                 val mHandlerThread = HandlerThread("Callback")
                 val mHandler =Handler( mHandlerThread.looper,incomingHandler)
 
-                   mHandler.sendMessage()
+                   mHandler.sendEmptyMessage(Constants.MESSAGE_SEND_DATA)
 //                }
 
             } catch (e: Exception){
